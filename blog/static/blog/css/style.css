@@ -14,12 +14,87 @@ body {
 }
 
 h1 {
-    color: #2c3e50;
+    color: #fff;
     padding: 1rem;
+    text-shadow: 0 0 10px #00e5ff, 0 0 20px #00e5ff;
 }
+
 
 .navbar-brand {
     font-weight: bold;
     letter-spacing: 0.5px;
     color: white;
+}
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+.neon-text {
+    font-weight: 700;
+    letter-spacing: 2px;
+    animation: neon-rgb 4s linear infinite;
+}
+
+@keyframes neon-rgb {
+    0%, 100% {
+        color: #ffb3b3;
+        text-shadow: 0 0 5px #fff, 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 80px #ff0000;
+    }
+    33% {
+        color: #b3ffb3;
+        text-shadow: 0 0 5px #fff, 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 80px #00ff00;
+    }
+    66% {
+        color: #b3b3ff;
+        text-shadow: 0 0 5px #fff, 0 0 10px #0000ff, 0 0 20px #0066ff, 0 0 40px #0066ff, 0 0 80px #0066ff;
+    }
+}
+
+body {
+    background-color: #111;
+    animation: bgslide 40s infinite;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+
+@keyframes bgslide {
+    0%   { background-image: url("../images/bg1.jpg"); }
+    20%  { background-image: url("../images/bg2.jpg"); }
+    40%  { background-image: url("../images/bg3.jpg"); }
+    60%  { background-image: url("../images/bg4.jpg"); }
+    80%  { background-image: url("../images/bg5.jpg"); }
+    100% { background-image: url("../images/bg1.jpg"); }
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    padding: 20px;
+    color: #fff;
+}
+
+.container .text-muted {
+    color: #ccc !important;
+}
+.btn-outline-primary {
+    color: #7fdfff;
+    border-color: #7fdfff;
+}
+.btn-outline-primary:hover,
+.btn-outline-primary.active {
+    background-color: #7fdfff;
+    color: #000;
+}
+
+.card {
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.card .text-muted {
+    color: #bbb !important;
 }

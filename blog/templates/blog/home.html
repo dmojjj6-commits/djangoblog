@@ -1,10 +1,22 @@
+{% extends 'blog/base.html' %}
 
-
-
+{% block content %}
 <h1>Welcome to {{ title }}</h1>
+<div class="mb-4">
+  <a href="{% url 'home' %}" class="btn btn-sm btn-outline-dark {% if not request.GET.category %}active{% endif %}">All</a>
+  {% for c in categories %}
+    <a href="?category={{ c.name|urlencode }}" class="btn btn-sm btn-outline-primary {% if request.GET.category == c.name %}active{% endif %}">{{ c.name }}</a>
+  {% endfor %}
+</div>
 
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.content }}</p>
-    <hr>
-
-    <p>No posts yet.</p>
+<div class="row">
+  {% for post in page_obj %}
+    {% include "blog/partials/_post_card.html" %}
+  {% empty %}
+    <div class="col-12">
+      <p class="text-center text-muted py-5">No posts yet - <a href="{% url 'post_create' %}">write the first one!</a></p>
+    </div>
+  {% endfor %}
+</div>
+{% include "blog/partials/_pagination.html" %}
+{% endblock %}
